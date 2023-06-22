@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="mainContainer">
+        <div class="title">
+            Add Book
+        </div>
+        <div class="footer">
+            <table class="footer">
+                <tr>
+                    <div class="component"><button class="button" onclick="window.location.href='/'">Menu</button></div>
+                    <div class="component"><button class="button" onclick="window.location.href='/avBooks'">Available Books</button></div>
+                    <div class="component"><button class="button" onclick="window.location.href='/unBooks'">UnAvailable Books</button></div>
+                </tr>
+            </table>
+        </div>
+        <div class="content">
+            <!--/*@thymesVar id="item" type="com.example.demo.item.Item"*/-->
+            <form action="#" method="post" th:action="@{/addBooks}" th:object="${item}">
+                <table>
+                    <tr>
+                        <td><label>Name:</label></td>
+                        <td><input required type="text" th:field="${item.name}" /></td>
+                    </tr>
+<!--                    <tr>-->
+<!--                        <td><label>Date:</label></td>-->
+<!--                        <td><label>-->
+<!--                            <input type="date" th:field="${item.release}"/>-->
+<!--                        </label></td>-->
+<!--                    </tr>-->
+                    <tr>
+                        <td><label>Author:</label></td>
+                        <td><label>
+                            <input required type="text" th:field="${item.author}"/>
+                        </label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="submit" class="button"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

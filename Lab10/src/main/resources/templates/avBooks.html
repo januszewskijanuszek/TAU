@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <meta charset="UTF-8">
+    <title>Books</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="mainContainer">
+        <div class="title">
+            Available  books
+        </div>
+        <div class="footer">
+            <table class="footer">
+                <tr>
+                    <div class="component"> <button class="button" onclick="window.location.href='/'">Menu</button></div>
+                    <div class="component"><button class="button" onclick="window.location.href='/unBooks'">UnAvailable Books</button></div>
+                    <div class="component"><button class="button" onclick="window.location.href='/addBooks'">Add Book</button></div>
+                </tr>
+            </table>
+        </div>
+        <div class="content">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr th:each="item: ${avBooks}">
+                    <td th:text="${item.name}"></td>
+                    <td th:text="${item.author}"></td>
+                    <td><div class="button"><a th:href="${'delete/'+item.id}">Delete</a></div> </td>
+                    <td><div class="button"><a th:href="${'take/'+item.id}">Take</a></div> </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
